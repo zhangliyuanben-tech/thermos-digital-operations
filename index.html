@@ -52,7 +52,7 @@
 
     /* 当前首屏：一条管理主线兼作章节导航，去除重复图示与摘要。 */
     html{scroll-padding-top:156px}.topbar{height:76px}.overview{padding-top:38px;padding-bottom:28px}.overview h1{font-size:35px;font-weight:700;line-height:1.5;letter-spacing:-.8px}.overview p{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.9}
-    .chapter-nav{border-top:0;border-bottom:1px solid var(--line);padding:0}.chapter-nav .wrap{display:block;padding-top:14px;padding-bottom:20px}.nav-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:0}.route-node{position:relative;min-width:0}.route-node:not(:last-child):after{content:'→';position:absolute;right:-16px;top:27px;color:#97a8c4;font-size:15px;line-height:20px}
+    .chapter-nav{border-top:0;border-bottom:1px solid var(--line);padding:0}.chapter-nav .wrap{display:block;padding-top:14px;padding-bottom:20px}.nav-links{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:14px;list-style:none;padding:0;margin:0}.route-node{position:relative;min-width:0}.route-node:not(:last-child):after{content:'→';position:absolute;right:-16px;top:27px;color:#97a8c4;font-size:15px;line-height:20px}
     .nav-link{display:grid;grid-template-columns:23px 1fr;gap:6px;align-items:start;padding:15px 12px 14px;border:1px solid #dfe6f2;border-radius:10px;background:white;white-space:normal;min-height:84px;box-shadow:0 3px 12px #1b335605;line-height:1.6}.nav-link .route-index{font:11px/22px ui-monospace,SFMono-Regular,monospace;color:var(--blue)}.nav-link strong{font-size:14px;font-weight:600;line-height:22px;color:var(--ink)}.nav-link small{grid-column:1 / -1;font-size:11px;line-height:1.8;color:var(--muted)}.nav-link:hover{border-color:#a3b9f7;background:#fbfcff}.nav-link[aria-current="location"]{border-color:#a3b9f7;background:var(--blue-soft);font-weight:400}.nav-link[aria-current="location"] strong{color:var(--blue)}.nav-link[aria-current="location"]:after{display:none}
     main>.chapter{padding-top:46px}.section-heading{align-items:center;gap:17px}.section-index{line-height:1.4}.section-heading h2{font-size:25px}.section-heading p{margin-top:6px}.stage-number{letter-spacing:.5px!important}
     @media print{html{scroll-padding-top:0}.overview{padding-top:23px;padding-bottom:20px}.overview h1{font-size:25px}.overview p{font-size:10px}.chapter-nav{display:none!important}main>.chapter{padding-top:25px}}
@@ -66,9 +66,9 @@
     @media(max-width:760px){.readiness-assist{grid-template-columns:1fr}}
     @media print{.readiness-assist{break-inside:avoid}.readiness-assist-item p{font-size:9px}.readiness-assist-item h4{font-size:11px}}
     /* 自有业务与旺季备货 */
-    .self-business{margin-top:56px}.self-business h2{font-size:21px;font-weight:650}.self-intro{color:var(--muted);font-size:13px;line-height:1.95;margin-top:10px}.self-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:23px 0 0}.self-flow li{position:relative;background:#f5f7fc;border-radius:10px;padding:17px 15px;min-width:0}.self-flow li:not(:last-child):after{content:'→';position:absolute;right:-16px;top:30px;color:#95a7c5;font-size:16px}.self-flow li>span{font:11px ui-monospace,monospace;color:var(--blue)}.self-flow h3{font-size:14px;margin-top:9px}.self-flow p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:7px}.self-example{display:flex;gap:15px;align-items:flex-start;background:var(--blue-soft);border-radius:10px;padding:17px 20px;margin-top:20px;font-size:12px;line-height:1.95}.self-example strong{color:var(--blue);white-space:nowrap;font-weight:650}.self-example p{color:#506481}
+    .self-business{margin-top:0}.self-business h2{font-size:21px;font-weight:650}.self-intro{color:var(--muted);font-size:13px;line-height:1.95;margin-top:10px}.self-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:23px 0 0}.self-flow li{position:relative;background:#f5f7fc;border-radius:10px;padding:17px 15px;min-width:0}.self-flow li:not(:last-child):after{content:'→';position:absolute;right:-16px;top:30px;color:#95a7c5;font-size:16px}.self-flow li>span{font:11px ui-monospace,monospace;color:var(--blue)}.self-flow h3{font-size:14px;margin-top:9px}.self-flow p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:7px}.self-example{display:flex;gap:15px;align-items:flex-start;background:var(--blue-soft);border-radius:10px;padding:17px 20px;margin-top:20px;font-size:12px;line-height:1.95}.self-example strong{color:var(--blue);white-space:nowrap;font-weight:650}.self-example p{color:#506481}
     @media(max-width:760px){.self-flow{grid-template-columns:1fr 1fr}.self-flow li:nth-child(2):after{display:none}.self-example{display:block}.self-example p{margin-top:7px}}
-    @media print{.self-business{margin-top:24px;break-inside:avoid}.self-business h2{font-size:16px}.self-intro,.self-flow p,.self-example{font-size:10px}.self-flow{gap:12px;margin-top:15px}.self-flow li{padding:13px 10px}.self-flow li:not(:last-child):after{right:-11px;font-size:12px}.self-flow h3{font-size:11px}.self-example{padding:13px 15px}}
+    @media print{.self-business{margin-top:0;break-inside:avoid}.self-business h2{font-size:16px}.self-intro,.self-flow p,.self-example{font-size:10px}.self-flow{gap:12px;margin-top:15px}.self-flow li{padding:13px 10px}.self-flow li:not(:last-child):after{right:-11px;font-size:12px}.self-flow h3{font-size:11px}.self-example{padding:13px 15px}}
   </style>
 </head>
 <body id="top">
@@ -90,6 +90,7 @@
     <li class="route-node"><a href="#handoff" class="nav-link"><span class="route-index">04</span><strong>工序交接</strong><small>双方清点与签认</small></a></li>
     <li class="route-node"><a href="#stages" class="nav-link"><span class="route-index">05</span><strong>分阶段交付</strong><small>已确认部分先开工</small></a></li>
     <li class="route-node"><a href="#reporting" class="nav-link"><span class="route-index">06</span><strong>报工核算</strong><small>记录与计算分离</small></a></li>
+    <li class="route-node"><a href="#own-business" class="nav-link"><span class="route-index">07</span><strong>自有业务备货</strong><small>按客户流程执行</small></a></li>
   </ol></div></nav>
 
   <noscript><p class="wrap noscript-note">当前浏览器未启用脚本。正文可正常阅读；流程默认展示现行方式，交互切换与打印按钮需启用脚本。</p></noscript>
@@ -231,10 +232,9 @@
     </section>
 
 
-    <aside class="panel self-business" id="own-business" aria-labelledby="own-business-title">
-      <div class="card-label">业务说明</div>
-      <h2 id="own-business-title">自有业务与旺季备货</h2>
-      <p class="self-intro">自有业务主体也作为工厂的客户，提前下单，并按相同的物料、齐套、计划、生产和出入库流程执行。</p>
+    <section id="own-business" class="chapter" aria-labelledby="own-business-title">
+      <div class="section-heading"><span class="section-index">07</span><div><h2 id="own-business-title">自有业务订单与旺季备货</h2><p>自有业务主体也作为工厂的客户，提前下单，并按相同的物料、齐套、计划、生产和出入库流程执行。</p></div></div>
+      <article class="panel self-business">
       <ol class="self-flow" aria-label="自有业务提前备货流程">
         <li><span>01</span><h3>提前下单</h3><p>自有业务根据旺季需求，向工厂发起备货订单。</p></li>
         <li><span>02</span><h3>按单生产</h3><p>按统一流程确认物料、安排计划，并完成已确认的生产阶段。</p></li>
@@ -242,7 +242,8 @@
         <li><span>04</span><h3>销售或继续加工</h3><p>后续根据业务需要进行买卖，或安排喷涂、包装等后续加工。</p></li>
       </ol>
       <div class="self-example"><strong>旺季提前备货示例</strong><p>旺季前，自有业务先下单制作光杯并入库，按约定完成货权交接；待后续销售或客户需求明确后，再出售或继续完成后续工艺。库存流转仍关联物料编码与批次，并记录货权主体。</p></div>
-    </aside>
+      </article>
+    </section>
 
   </main>
 
