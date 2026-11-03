@@ -69,6 +69,8 @@
     .self-business{margin-top:0}.self-business h2{font-size:21px;font-weight:650}.self-intro{color:var(--muted);font-size:13px;line-height:1.95;margin-top:10px}.self-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:23px 0 0}.self-flow li{position:relative;background:#f5f7fc;border-radius:10px;padding:17px 15px;min-width:0}.self-flow li:not(:last-child):after{content:'→';position:absolute;right:-16px;top:30px;color:#95a7c5;font-size:16px}.self-flow li>span{font:11px ui-monospace,monospace;color:var(--blue)}.self-flow h3{font-size:14px;margin-top:9px}.self-flow p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:7px}.self-example{display:flex;gap:15px;align-items:flex-start;background:var(--blue-soft);border-radius:10px;padding:17px 20px;margin-top:20px;font-size:12px;line-height:1.95}.self-example strong{color:var(--blue);white-space:nowrap;font-weight:650}.self-example p{color:#506481}
     @media(max-width:760px){.self-flow{grid-template-columns:1fr 1fr}.self-flow li:nth-child(2):after{display:none}.self-example{display:block}.self-example p{margin-top:7px}}
     @media print{.self-business{margin-top:0;break-inside:avoid}.self-business h2{font-size:16px}.self-intro,.self-flow p,.self-example{font-size:10px}.self-flow{gap:12px;margin-top:15px}.self-flow li{padding:13px 10px}.self-flow li:not(:last-child):after{right:-11px;font-size:12px}.self-flow h3{font-size:11px}.self-example{padding:13px 15px}}
+    /* WMS 封板库存冻结 */
+    .planning-flow .wms-freeze-note{margin-top:10px;color:#1f46a5;line-height:1.7}
   </style>
 </head>
 <body id="top">
@@ -87,8 +89,8 @@
     <li class="route-node"><a href="#materials" class="nav-link" aria-current="location"><span class="route-index">01</span><strong>物料基础</strong><small>统一编码与 BOM</small></a></li>
     <li class="route-node"><a href="#inventory" class="nav-link"><span class="route-index">02</span><strong>库存批次</strong><small>出入库与 FIFO</small></a></li>
     <li class="route-node"><a href="#planning" class="nav-link"><span class="route-index">03</span><strong>齐套封板</strong><small>资料确认后交计划</small></a></li>
-    <li class="route-node"><a href="#handoff" class="nav-link"><span class="route-index">04</span><strong>工序交接</strong><small>双方清点与签认</small></a></li>
-    <li class="route-node"><a href="#stages" class="nav-link"><span class="route-index">05</span><strong>分阶段交付</strong><small>已确认部分先开工</small></a></li>
+    <li class="route-node"><a href="#stages" class="nav-link"><span class="route-index">04</span><strong>分阶段交付</strong><small>已确认部分先开工</small></a></li>
+    <li class="route-node"><a href="#handoff" class="nav-link"><span class="route-index">05</span><strong>工序交接</strong><small>双方清点与签认</small></a></li>
     <li class="route-node"><a href="#reporting" class="nav-link"><span class="route-index">06</span><strong>报工核算</strong><small>记录与计算分离</small></a></li>
     <li class="route-node"><a href="#own-business" class="nav-link"><span class="route-index">07</span><strong>自有业务备货</strong><small>按客户流程执行</small></a></li>
   </ol></div></nav>
@@ -180,7 +182,7 @@
 
       <article class="panel flow-panel stack-gap">
         <div class="flow-top"><div><h3>跟单发起-确认封板-计划安排</h3><p class="panel-intro">切换查看两种流程条件。未来方式仅在 WMS 上线且数据准确后启用。</p></div><div class="segmented" role="tablist" aria-label="审批流程方式"><button type="button" id="current-tab" role="tab" aria-selected="true" aria-controls="approval-current">现行流程</button><button type="button" id="wms-tab" role="tab" aria-selected="false" aria-controls="approval-wms" tabindex="-1">未来 · WMS</button></div></div>
-        <ol class="planning-flow"><li><span class="flow-num">01</span><h4>前置资料准备</h4><p>本阶段物料与工艺已确认<br>建立物料跟踪表</p></li><li><span class="flow-num">02</span><h4>跟单员发起</h4><p>组织采购到货与检验<br>持续跟催、签认</p></li><li><span class="flow-num">03</span><h4>系统核算齐套率</h4><p>按条件逐项判定<br>三方齐套单提报</p><span class="inline-status">不足 → 采购补齐 ↺</span></li><li class="freeze-point"><span class="flow-num">04 · 封板时点</span><h4>进入计划专员</h4><p>进入即冻结内容<br>任何物料编码也不能改</p></li><li><span class="flow-num">05</span><h4>计划安排与执行</h4><p>计划专员安排排产<br>依照封板内容推进</p></li></ol>
+        <ol class="planning-flow"><li><span class="flow-num">01</span><h4>前置资料准备</h4><p>本阶段物料与工艺已确认<br>建立物料跟踪表</p></li><li><span class="flow-num">02</span><h4>跟单员发起</h4><p>组织采购到货与检验<br>持续跟催、签认</p></li><li><span class="flow-num">03</span><h4 data-approval-flow="current">人工核对齐套情况</h4><p data-approval-flow="current">人工核对物料数量、品质与账物<br>三方签认后由跟单提报</p><h4 data-approval-flow="wms" hidden>系统核算齐套率</h4><p data-approval-flow="wms" hidden>系统按条件逐项判定<br>跟单确认后流转计划专员</p><span class="inline-status">不足 → 采购补齐 ↺</span></li><li class="freeze-point"><span class="flow-num">04 · 封板时点</span><h4>进入计划专员</h4><p>进入即冻结内容<br>任何物料编码也不能改</p><p class="wms-freeze-note" data-approval-flow="wms" hidden><strong>封板后，对应库存及其批次同步至 WMS 冻结，供后续使用，不得挪用。</strong></p></li><li><span class="flow-num">05</span><h4>计划安排与执行</h4><p>计划专员安排排产<br>依照封板内容推进</p></li></ol>
         <div id="approval-current" class="approval-panel" role="tabpanel" aria-labelledby="current-tab"><div><h4>现行审批签字要求</h4><p class="approval-caption">先核实，再由跟单汇总结论</p></div><div><div class="approval-roles"><span class="approval-role">仓库主管</span><span class="approval-role">品质</span><span class="approval-role">业务跟单员</span></div><p>仓库确认数量与账物、品质确认合格性，业务跟单汇总齐套结论并签认提报。计划专员凭完整确认单受理排产。</p></div></div>
         <div id="approval-wms" class="approval-panel" role="tabpanel" aria-labelledby="wms-tab" hidden><div><h4>未来系统判断物料</h4><p class="approval-caption">条件满足后启用</p></div><div><p class="approval-condition">启用前提：WMS 已上线，且数据准确。</p><div class="approval-roles"><span class="approval-role">系统自动判断物料情况</span><span class="approval-role">流转计划专员</span></div><p>不再要求仓库主管、品质的人工签字；数量、账物及检验结论仍需有效，业务跟单员按既有流程确认。后续计划安排仍由计划专员负责。</p></div></div>
         <div class="supply-loop"><span>缺料闭环</span><p>未齐套 → 采购跟催 / 品质处置 / 外协催回 → 重新判定。</p></div>
@@ -195,9 +197,22 @@
       </article>
     </section>
 
-    <!-- 04 工序交接 -->
+    <!-- 04 分阶段交付 -->
+    <section id="stages" class="chapter" aria-labelledby="stages-title">
+      <div class="section-heading"><span class="section-index">04</span><div><h2 id="stages-title">订单对应的 BOM/工艺路线支持分阶段执行</h2><p>按客户确认进度，分阶段交付与执行。已确认且满足生产条件的阶段先开工，后续阶段确认后再衔接。</p></div></div>
+      <article class="panel">
+        <div class="order-map"><div class="order-origin"><h3>同一笔订单</h3><p>完整 BOM / 工艺路线<br>按客户确认进度分阶段执行</p></div><div class="stage-list"><div class="stage-card"><div class="stage-number mono">先行阶段</div><h4>先制作光杯</h4><div class="stage-route"><span>杯体制作</span><i aria-hidden="true">→</i><span>光杯完成</span><i aria-hidden="true">→</i><span>入库</span></div><p>在完整 BOM / 工艺路线中，先确认本阶段的物料与前置条件，再按流程封板执行。</p><span class="pill green">已确认部分先开工</span></div><div class="stage-card"><div class="stage-number mono">后续阶段</div><h4>确认后，继续完成</h4><div class="stage-route"><span>后续工艺</span><i aria-hidden="true">→</i><span>物料 / 包装</span></div><p>客户确认后续要求、材料到位后，确认对应工艺与前置条件，再衔接喷涂、抛光及包装等业务。</p><span class="pill">仍关联原订单</span></div></div></div>
+        <div class="order-key"><strong>完整方案，分阶段执行</strong><p>一笔订单对应完整的 BOM / 工艺路线，按客户确认进度分阶段交付与执行。各阶段围绕已确认内容推进，光杯入库后再衔接后续工艺。</p></div>
+        <div class="stage-detail">
+          <div class="stage-detail-panel" id="confirm-detail"><strong class="detail-title">确认的是本次要做的内容</strong><p>首次封板时，相应内容已经过<strong>业务主管确认、最终客户确认</strong>。对应阶段的物料先完成齐套校验，再交给计划专员安排。后续雕花、颜色、包装等尚未确认的部分，可留待后续阶段确认。</p></div>
+          <div class="stage-detail-panel" id="boundary-detail"><strong class="detail-title">后续阶段确认，不回改已封板阶段</strong><p>在完整 BOM / 工艺路线中，按客户确认进度明确后续阶段的喷涂、抛光、物料及包装要求，再按相同流程确认与封板。</p><p>如果涉及已封板内容的变更，仍须<strong>停止原计划 → 新开流程 → 重新评估、封板与排产</strong>，并落实发起人的相应责任。</p></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 05 工序交接 -->
     <section id="handoff" class="chapter" aria-labelledby="handoff-title">
-      <div class="section-heading"><span class="section-index">04</span><div><h2 id="handoff-title">前后工序，凭据交接、当面确认</h2><p>把现场的实物流、数量流和责任记录同步起来，交接凭证进入报工数据链。</p></div></div>
+      <div class="section-heading"><span class="section-index">05</span><div><h2 id="handoff-title">前后工序，凭据交接、当面确认</h2><p>把现场的实物流、数量流和责任记录同步起来，交接凭证进入报工数据链。</p></div></div>
       <article class="panel sourced-panel">
         <div class="subheading"><div><div class="card-label">工序物料管理</div><h3>标准容器 + 流转凭证 + 双方确认</h3><p>工序间暂放区设容量上限；具体容器容量与区域上限按现场核定。</p></div><span class="pill">无凭证不交接</span></div>
         <ol class="process-flow" aria-label="工序交接流程"><li><span class="process-index">01 / 前道</span><h4>合格品装载附卡</h4><p>按标准容器装载，标明数量、生产单、物料与下一工序。</p></li><li><span class="process-index">02 / 交接点</span><h4>后道到点领取</h4><p>前后道共同在场，指定交接点领取，禁止未经确认直接投产。</p></li><li><span class="process-index">03 / 共同</span><h4>清点与外观初检</h4><p>核实实交实收及外观状态，可按标准容器核数，不凭估计交接。</p></li><li><span class="process-index">04 / 签认</span><h4>接收人签名记时</h4><p>无误后签认；前道留副联或电子记录，正联随物料流转。</p></li><li><span class="process-index">05 / 统计</span><h4>汇总归档与核对</h4><p>统计每日收集凭证，汇总现场完成情况并核对在制品与系统。</p></li></ol>
@@ -206,19 +221,6 @@
         <div class="exception-grid"><div class="exception"><h4>数量短缺 / 溢出</h4><p>在凭证上记录<strong>实收数量</strong>，双方共同核对签认，进入《交接异常记录表》。短缺由前道补足；溢出由班组长查明计数、标准容量或超产原因，不能直接覆盖原记录。</p></div><div class="exception quality"><h4>质量异常 / 拒收</h4><p>后道可拒收批量质量异常，物料隔离待判，通知前道班组长与 IPQC。<strong>仍记录实物数量、批次、位置与异常状态</strong>，暂不作合格交接或投料确认；处置后按新指令交接。</p></div></div>
         <div class="rule-note"><span><strong>签收凭证是现场产量依据，不直接等于工资结算。</strong>班组长、主管、车间统计监督交接、处理争议，并定期盘点在制品。凭证连续编号、规范留存，修正保留原记录及责任信息。</span></div>
         <p class="source-note">来源：工序流转制度 · 第 2–4 页。质量异常“仍记录数量、暂不合格交接”为本稿为防止数据断档作的整合修正。</p>
-      </article>
-    </section>
-
-    <!-- 05 分阶段交付 -->
-    <section id="stages" class="chapter" aria-labelledby="stages-title">
-      <div class="section-heading"><span class="section-index">05</span><div><h2 id="stages-title">订单对应的 BOM/工艺路线支持分阶段执行</h2><p>按客户确认进度，分阶段交付与执行。已确认且满足生产条件的阶段先开工，后续阶段确认后再衔接。</p></div></div>
-      <article class="panel">
-        <div class="order-map"><div class="order-origin"><h3>同一笔订单</h3><p>完整 BOM / 工艺路线<br>按客户确认进度分阶段执行</p></div><div class="stage-list"><div class="stage-card"><div class="stage-number mono">先行阶段</div><h4>先制作光杯</h4><div class="stage-route"><span>杯体制作</span><i aria-hidden="true">→</i><span>光杯完成</span><i aria-hidden="true">→</i><span>入库</span></div><p>在完整 BOM / 工艺路线中，先确认本阶段的物料与前置条件，再按流程封板执行。</p><span class="pill green">已确认部分先开工</span></div><div class="stage-card"><div class="stage-number mono">后续阶段</div><h4>确认后，继续完成</h4><div class="stage-route"><span>后续工艺</span><i aria-hidden="true">→</i><span>物料 / 包装</span></div><p>客户确认后续要求、材料到位后，确认对应工艺与前置条件，再衔接喷涂、抛光及包装等业务。</p><span class="pill">仍关联原订单</span></div></div></div>
-        <div class="order-key"><strong>完整方案，分阶段执行</strong><p>一笔订单对应完整的 BOM / 工艺路线，按客户确认进度分阶段交付与执行。各阶段围绕已确认内容推进，光杯入库后再衔接后续工艺。</p></div>
-        <div class="stage-detail">
-          <div class="stage-detail-panel" id="confirm-detail"><strong class="detail-title">确认的是本次要做的内容</strong><p>首次封板时，相应内容已经过<strong>业务主管确认、最终客户确认</strong>。对应阶段的物料先完成齐套校验，再交给计划专员安排。后续雕花、颜色、包装等尚未确认的部分，可留待后续阶段确认。</p></div>
-          <div class="stage-detail-panel" id="boundary-detail"><strong class="detail-title">后续阶段确认，不回改已封板阶段</strong><p>在完整 BOM / 工艺路线中，按客户确认进度明确后续阶段的喷涂、抛光、物料及包装要求，再按相同流程确认与封板。</p><p>如果涉及已封板内容的变更，仍须<strong>停止原计划 → 新开流程 → 重新评估、封板与排产</strong>，并落实发起人的相应责任。</p></div>
-        </div>
       </article>
     </section>
 
@@ -272,6 +274,10 @@
             item.setAttribute('aria-selected', String(selected));
             item.tabIndex = selected ? 0 : -1;
             document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+          }
+          if (group.getAttribute('aria-label') === '审批流程方式') {
+            const mode = tab.id === 'wms-tab' ? 'wms' : 'current';
+            for (const item of document.querySelectorAll("[data-approval-flow]")) item.hidden = item.dataset.approvalFlow !== mode;
           }
           if (focus) tab.focus();
         }
