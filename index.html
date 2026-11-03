@@ -65,6 +65,10 @@
     .readiness-assist{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.readiness-assist-item{padding:18px 20px;border:1px solid #dfe6f2;border-radius:10px;background:#fafbfe}.readiness-assist-item h4{font-size:14px;color:var(--ink)}.readiness-assist-item p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:8px}.readiness-assist-item .assist-formula{font-weight:600;color:var(--blue);font-size:12px}.readiness-assist-item p+p{margin-top:7px}
     @media(max-width:760px){.readiness-assist{grid-template-columns:1fr}}
     @media print{.readiness-assist{break-inside:avoid}.readiness-assist-item p{font-size:9px}.readiness-assist-item h4{font-size:11px}}
+    /* 自有业务与旺季备货 */
+    .self-business{margin-top:56px}.self-business h2{font-size:21px;font-weight:650}.self-intro{color:var(--muted);font-size:13px;line-height:1.95;margin-top:10px}.self-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;list-style:none;padding:0;margin:23px 0 0}.self-flow li{position:relative;background:#f5f7fc;border-radius:10px;padding:17px 15px;min-width:0}.self-flow li:not(:last-child):after{content:'→';position:absolute;right:-16px;top:30px;color:#95a7c5;font-size:16px}.self-flow li>span{font:11px ui-monospace,monospace;color:var(--blue)}.self-flow h3{font-size:14px;margin-top:9px}.self-flow p{font-size:12px;color:var(--muted);line-height:1.9;margin-top:7px}.self-example{display:flex;gap:15px;align-items:flex-start;background:var(--blue-soft);border-radius:10px;padding:17px 20px;margin-top:20px;font-size:12px;line-height:1.95}.self-example strong{color:var(--blue);white-space:nowrap;font-weight:650}.self-example p{color:#506481}
+    @media(max-width:760px){.self-flow{grid-template-columns:1fr 1fr}.self-flow li:nth-child(2):after{display:none}.self-example{display:block}.self-example p{margin-top:7px}}
+    @media print{.self-business{margin-top:24px;break-inside:avoid}.self-business h2{font-size:16px}.self-intro,.self-flow p,.self-example{font-size:10px}.self-flow{gap:12px;margin-top:15px}.self-flow li{padding:13px 10px}.self-flow li:not(:last-child):after{right:-11px;font-size:12px}.self-flow h3{font-size:11px}.self-example{padding:13px 15px}}
   </style>
 </head>
 <body id="top">
@@ -226,6 +230,19 @@
       </article>
     </section>
 
+
+    <aside class="panel self-business" id="own-business" aria-labelledby="own-business-title">
+      <div class="card-label">业务说明</div>
+      <h2 id="own-business-title">自有业务与旺季备货</h2>
+      <p class="self-intro">自有业务主体也作为工厂的客户，提前下单，并按相同的物料、齐套、计划、生产和出入库流程执行。</p>
+      <ol class="self-flow" aria-label="自有业务提前备货流程">
+        <li><span>01</span><h3>提前下单</h3><p>自有业务根据旺季需求，向工厂发起备货订单。</p></li>
+        <li><span>02</span><h3>按单生产</h3><p>按统一流程确认物料、安排计划，并完成已确认的生产阶段。</p></li>
+        <li><span>03</span><h3>入库与货权交接</h3><p>可先生产至半成品入库，按约定办理交接，货权转至自有业务主体。</p></li>
+        <li><span>04</span><h3>销售或继续加工</h3><p>后续根据业务需要进行买卖，或安排喷涂、包装等后续加工。</p></li>
+      </ol>
+      <div class="self-example"><strong>旺季提前备货示例</strong><p>旺季前，自有业务先下单制作光杯并入库，按约定完成货权交接；待后续销售或客户需求明确后，再出售或继续完成后续工艺。库存流转仍关联物料编码与批次，并记录货权主体。</p></div>
+    </aside>
 
   </main>
 
