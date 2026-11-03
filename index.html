@@ -57,6 +57,10 @@
     main>.chapter{padding-top:46px}.section-heading{align-items:center;gap:17px}.section-index{line-height:1.4}.section-heading h2{font-size:25px}.section-heading p{margin-top:6px}.stage-number{letter-spacing:.5px!important}
     @media print{html{scroll-padding-top:0}.overview{padding-top:23px;padding-bottom:20px}.overview h1{font-size:25px}.overview p{font-size:10px}.chapter-nav{display:none!important}main>.chapter{padding-top:25px}}
 
+    /* 阶段边界平铺展示 */
+    .stage-detail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    @media(max-width:760px){.stage-detail{grid-template-columns:1fr}}
+    @media print{.stage-detail-panel+.stage-detail-panel{margin-top:0}}
   </style>
 </head>
 <body id="top">
@@ -198,9 +202,9 @@
       <article class="panel">
         <div class="order-map"><div class="order-origin"><h3>同一笔订单</h3><p>完整 BOM / 工艺路线<br>按客户确认进度分阶段执行</p></div><div class="stage-list"><div class="stage-card"><div class="stage-number mono">先行阶段</div><h4>先制作光杯</h4><div class="stage-route"><span>杯体制作</span><i aria-hidden="true">→</i><span>光杯完成</span><i aria-hidden="true">→</i><span>入库</span></div><p>在完整 BOM / 工艺路线中，先确认本阶段的物料与前置条件，再按流程封板执行。</p><span class="pill green">已确认部分先开工</span></div><div class="stage-card"><div class="stage-number mono">后续阶段</div><h4>确认后，继续完成</h4><div class="stage-route"><span>后续工艺</span><i aria-hidden="true">→</i><span>物料 / 包装</span></div><p>客户确认后续要求、材料到位后，确认对应工艺与前置条件，再衔接喷涂、抛光及包装等业务。</p><span class="pill">仍关联原订单</span></div></div></div>
         <div class="order-key"><strong>完整方案，分阶段执行</strong><p>一笔订单对应完整的 BOM / 工艺路线，按客户确认进度分阶段交付与执行。各阶段围绕已确认内容推进，光杯入库后再衔接后续工艺。</p></div>
-        <div class="stage-detail"><div class="stage-detail-header"><h4>两个边界，需要一起守住</h4><div class="segmented" role="tablist" aria-label="阶段管理边界"><button type="button" id="confirm-tab" role="tab" aria-selected="true" aria-controls="confirm-detail">开工前确认</button><button type="button" id="boundary-tab" role="tab" aria-selected="false" aria-controls="boundary-detail" tabindex="-1">后续阶段边界</button></div></div>
-          <div class="stage-detail-panel" id="confirm-detail" role="tabpanel" aria-labelledby="confirm-tab"><strong class="detail-title">确认的是本次要做的内容</strong><p>首次封板时，相应内容已经过<strong>业务主管确认、最终客户确认</strong>。对应阶段的物料先完成齐套校验，再交给计划专员安排。后续雕花、颜色、包装等尚未确认的部分，可留待后续阶段确认。</p></div>
-          <div class="stage-detail-panel" id="boundary-detail" role="tabpanel" aria-labelledby="boundary-tab" hidden><strong class="detail-title">后续阶段确认，不回改已封板阶段</strong><p>在完整 BOM / 工艺路线中，按客户确认进度明确后续阶段的喷涂、抛光、物料及包装要求，再按相同流程确认与封板。</p><p>如果涉及已封板内容的变更，仍须<strong>停止原计划 → 新开流程 → 重新评估、封板与排产</strong>，并落实发起人的相应责任。</p></div>
+        <div class="stage-detail">
+          <div class="stage-detail-panel" id="confirm-detail"><strong class="detail-title">确认的是本次要做的内容</strong><p>首次封板时，相应内容已经过<strong>业务主管确认、最终客户确认</strong>。对应阶段的物料先完成齐套校验，再交给计划专员安排。后续雕花、颜色、包装等尚未确认的部分，可留待后续阶段确认。</p></div>
+          <div class="stage-detail-panel" id="boundary-detail"><strong class="detail-title">后续阶段确认，不回改已封板阶段</strong><p>在完整 BOM / 工艺路线中，按客户确认进度明确后续阶段的喷涂、抛光、物料及包装要求，再按相同流程确认与封板。</p><p>如果涉及已封板内容的变更，仍须<strong>停止原计划 → 新开流程 → 重新评估、封板与排产</strong>，并落实发起人的相应责任。</p></div>
         </div>
       </article>
     </section>
