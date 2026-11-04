@@ -212,15 +212,15 @@
 
     <!-- 05 工序交接 -->
     <section id="handoff" class="chapter" aria-labelledby="handoff-title">
-      <div class="section-heading"><span class="section-index">05</span><div><h2 id="handoff-title">前后工序，凭据交接、当面确认</h2><p>把现场的实物流、数量流和责任记录同步起来，交接凭证进入报工数据链。</p></div></div>
+      <div class="section-heading"><span class="section-index">05</span><div><h2 id="handoff-title">前后工序，凭据交接、当面确认</h2><p>实物、数量与责任同步确认，交接凭证作为报工依据。</p></div></div>
       <article class="panel sourced-panel">
-        <div class="subheading"><div><div class="card-label">工序物料管理</div><h3>标准容器 + 流转凭证 + 双方确认</h3><p>工序间暂放区设容量上限；具体容器容量与区域上限按现场核定。</p></div><span class="pill">无凭证不交接</span></div>
-        <ol class="process-flow" aria-label="工序交接流程"><li><span class="process-index">01 / 前道</span><h4>合格品装载附卡</h4><p>按标准容器装载，标明数量、生产单、物料与下一工序。</p></li><li><span class="process-index">02 / 交接点</span><h4>后道到点领取</h4><p>前后道共同在场，指定交接点领取，禁止未经确认直接投产。</p></li><li><span class="process-index">03 / 共同</span><h4>清点与外观初检</h4><p>核实实交实收及外观状态，可按标准容器核数，不凭估计交接。</p></li><li><span class="process-index">04 / 签认</span><h4>接收人签名记时</h4><p>无误后签认；前道留副联或电子记录，正联随物料流转。</p></li><li><span class="process-index">05 / 统计</span><h4>汇总归档与核对</h4><p>统计每日收集凭证，汇总现场完成情况并核对在制品与系统。</p></li></ol>
-        <h4 style="font-size:13px;margin-top:24px">交接记录的核心关联字段</h4><div class="field-strip"><span>订单 / 阶段</span><span>物料编码与名称</span><span>批次号</span><span>前道 / 后道工序</span><span>实交 / 实收数量及单位</span><span>品质状态</span><span>交接双方与时间</span><span>连续凭证号</span></div>
-        <p class="source-note">物料编码、批次与阶段字段按已确认的管理基础补入；规格、材质、型号、人员、产线、生产时间等随流转卡保留。</p>
-        <div class="exception-grid"><div class="exception"><h4>数量短缺 / 溢出</h4><p>在凭证上记录<strong>实收数量</strong>，双方共同核对签认，进入《交接异常记录表》。短缺由前道补足；溢出由班组长查明计数、标准容量或超产原因，不能直接覆盖原记录。</p></div><div class="exception quality"><h4>质量异常 / 拒收</h4><p>后道可拒收批量质量异常，物料隔离待判，通知前道班组长与 IPQC。<strong>仍记录实物数量、批次、位置与异常状态</strong>，暂不作合格交接或投料确认；处置后按新指令交接。</p></div></div>
-        <div class="rule-note"><span><strong>签收凭证是现场产量依据，不直接等于工资结算。</strong>班组长、主管、车间统计监督交接、处理争议，并定期盘点在制品。凭证连续编号、规范留存，修正保留原记录及责任信息。</span></div>
-        <p class="source-note">来源：工序流转制度 · 第 2–4 页。质量异常“仍记录数量、暂不合格交接”为本稿为防止数据断档作的整合修正。</p>
+        <div class="subheading"><div><div class="card-label">工序物料管理</div><h3>标准容器 + 流转凭证 + 双方确认</h3><p><strong>定容周转器具（整框核算）</strong>：满框按定额折算，尾数逐件清点；容器容量与暂放区上限按现场核定。</p></div><span class="pill">无凭证不交接</span></div>
+        <ol class="process-flow" aria-label="工序交接流程"><li><span class="process-index">01 / 前道</span><h4>合格品装载附卡</h4><p>标准容器装载，附数量、生产单、物料及下一工序。</p></li><li><span class="process-index">02 / 交接点</span><h4>后道到点领取</h4><p>双方在指定点交接，确认后投产。</p></li><li><span class="process-index">03 / 共同</span><h4>清点与外观初检</h4><p><strong>通过标准容器核数</strong>，交接时“只数满框、只点尾数框”，并核对外观。<br><strong class="blue">1 分钟快速交接</strong></p></li><li><span class="process-index">04 / 签认</span><h4>接收人签名记时</h4><p>核对后签认记时；前道留底，正联随物料流转。</p></li><li><span class="process-index">05 / 统计</span><h4>汇总归档与核对</h4><p>每日归集凭证，汇总产量，核对在制品与系统。</p></li></ol>
+        <h4 style="font-size:13px;margin-top:24px">交接记录关键字段</h4><div class="field-strip"><span>订单 / 阶段</span><span>物料编码与名称</span><span>批次号</span><span>前道 / 后道工序</span><span>实交 / 实收数量及单位</span><span>品质状态</span><span>交接双方与时间</span><span>连续凭证号</span></div>
+        <p class="source-note">规格、材质、型号、人员、产线及生产时间随流转卡保留。</p>
+        <div class="exception-grid"><div class="exception"><h4>数量短缺 / 溢出</h4><p>记录<strong>实收数量</strong>，双方签认并登记异常。短缺由前道补足；溢出由班组长查因，保留原记录。</p></div><div class="exception quality"><h4>质量异常 / 拒收</h4><p>批量质量异常可拒收，隔离并通知前道班组长、IPQC。<strong>记录数量、批次、位置及异常状态</strong>；暂不作合格交接或投料，处置后按新指令交接。</p></div></div>
+        <div class="rule-note"><span><strong>签收凭证用于报工，工资另行核算。</strong>班组长、主管及统计监督交接、处理争议、定期盘点。凭证连续编号，修正保留原记录与责任信息。</span></div>
+        <p class="source-note">来源：工序流转制度 · 第 2–4 页；异常仍留数量记录，暂不作合格交接。</p>
       </article>
     </section>
 
