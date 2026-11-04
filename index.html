@@ -31,7 +31,6 @@
     @media print{@page{size:A4;margin:13mm}html{scroll-behavior:auto}body{background:white;font-size:10pt;color:#18243b;-webkit-print-color-adjust:exact;print-color-adjust:exact}.wrap{width:100%}.topbar{height:42px}.top-actions,.chapter-nav,.reading-progress,.hero-bottom,.blueprint,.bottom-summary .text-btn,.segmented,.no-print{display:none!important}.hero{display:block;padding:23px 0}.hero h1{font-size:29px;line-height:1.35}.hero-kicker{font-size:8px;margin-bottom:10px}.hero-copy{font-size:10px;max-width:100%;margin-top:12px}.principles{gap:18px;padding:16px 0}.principle h2{font-size:11px}.principle p{font-size:9px}.chapter{padding-top:25px}.section-heading{margin-bottom:14px;break-after:avoid}.section-heading h2{font-size:19px}.section-heading p{font-size:10px}.section-index{font-size:24px}.panel{padding:19px;border-radius:10px;box-shadow:none;break-inside:avoid}.two-col,.inventory-layout{gap:13px}.panel h3{font-size:14px}.panel-intro,.rule-note{font-size:10px}.planning-flow{gap:16px}.planning-flow li{padding:12px 8px}.planning-flow li:not(:last-child):after{right:-14px}.planning-flow h4{font-size:11px}.planning-flow p{font-size:9px}.approval-panel{grid-template-columns:130px 1fr}.approval-panel p{font-size:10px}.approval-panel .approval-role{font-size:10px}.freeze-block{margin-top:14px;padding:20px;break-inside:avoid}.freeze-intro h3{font-size:17px}.freeze-intro p,.freeze-option p{font-size:10px}.freeze-option h4{font-size:12px}.freeze-rule{font-size:10px}.change-steps li{font-size:10px}.order-map{grid-template-columns:140px 1fr;gap:29px}.stage-card{padding:15px 13px}.order-origin{padding:16px}.order-origin h3{font-size:18px}.stage-card h4{font-size:13px}.stage-card p,.order-origin p,.order-key,.stage-route,.stage-detail-panel,.report-summary{font-size:10px}.stage-detail [hidden]{display:block!important}.stage-detail-panel+.stage-detail-panel{margin-top:10px}.stage-detail-header{margin-bottom:12px}.stage-detail{padding-top:16px;margin-top:16px}.print-only{display:block;margin-top:13px;font-size:10px;color:var(--muted)}.report-layout{grid-template-columns:1fr 50px 1fr;gap:10px;margin-top:18px}.report-card{padding:18px}.report-card h4{font-size:14px}.record-fields span,.report-result,.report-card p{font-size:10px}.bottom-summary{margin-top:24px;padding-top:20px}.bottom-summary h3{font-size:16px}.bottom-summary p{font-size:10px}.page-footer{padding:18px 0 0;font-size:8px}main{padding-bottom:0}}
     .principle .num{white-space:nowrap}
     @media(max-width:760px){.principle{grid-template-columns:26px 1fr}.segmented button{min-height:44px}.text-btn{min-height:44px}.planning-flow .freeze-point .flow-num{grid-row:auto;grid-column:1 / -1;white-space:nowrap;margin-bottom:6px}.planning-flow .freeze-point h4,.planning-flow .freeze-point p{grid-column:1 / -1}}
-    @media print{.approval-panel[hidden]{display:grid!important}}
 
     /* V0.2: PC-first制度整合；沿用基线外观，不在本轮增加移动端专项布局。 */
     .version-link{font-size:12px;color:var(--blue);white-space:nowrap}.version-link:hover{text-decoration:underline}
@@ -95,7 +94,7 @@
     <li class="route-node"><a href="#own-business" class="nav-link"><span class="route-index">07</span><strong>自有业务</strong><small>按客户流程执行，备货</small></a></li>
   </ol></div></nav>
 
-  <noscript><p class="wrap noscript-note">当前浏览器未启用脚本。正文可正常阅读；流程默认展示现行方式，交互切换与打印按钮需启用脚本。</p></noscript>
+  <noscript><p class="wrap noscript-note">当前浏览器未启用脚本。正文可正常阅读。打印按钮需启用脚本。</p></noscript>
 
   <main class="wrap">
     <!-- 01 物料基础 -->
@@ -164,7 +163,7 @@
 
     <!-- 03 齐套封板 -->
     <section id="planning" class="chapter" aria-labelledby="planning-title">
-      <div class="section-heading"><span class="section-index">03</span><div><h2 id="planning-title">按阶段核齐套，凭确认单交计划</h2><p>跟单为第一责任人，仓库、品质分别背书；进入计划专员即封板，随后安排排产。</p></div></div>
+      <div class="section-heading"><span class="section-index">03</span><div><h2 id="planning-title">按阶段核齐套，确认后交计划</h2><p>WMS 核算本阶段齐套情况，跟单确认后交计划专员封板排产。</p></div></div>
 
       <article class="panel sourced-panel" id="kitting-definition">
         <div class="subheading"><div><div class="card-label">齐套的判断口径</div><h3>不是“到货了”就算齐套，数量、品质与账物都要满足</h3></div><span class="draft-tag">阶段范围为本稿整合</span></div>
@@ -175,16 +174,13 @@
           <div class="readiness-assist-item"><h4>最大可生产成套数</h4><p class="assist-formula">各必需物料的「可用量 ÷ 单套用量」向下取整后，取最小值</p><p>按本阶段短板物料计算，使用合格且扣除已预留的可用量；单套用量须明确且大于 0，不同单位先统一。半成品与其原料按实际领用层级核算，避免重复计入。</p><p>套数齐套率可用最大可生产套数 ÷ 本阶段计划套数 × 100% 表示；计划套数未填写或为 0 时不计算。</p></div>
         </div>
         <p class="readiness-principle"><strong>每项均需满足上述条件，关键物料不能用平均齐套率掩盖。</strong>整单保留所有阶段的物料总览，本次开工按对应阶段核算；未确认的后续包装不阻断已确认的光杯阶段。本稿仍按“齐套后交计划”处理。</p>
-        <div class="role-chain"><div class="role-card"><h4>仓库签认</h4><p>数量与账物是否一致；到货日期、数量与批次是否真实。</p></div><div class="role-card"><h4>品质签认</h4><p>来料是否合格；待检、不合格与替代料是否已明确处置。</p></div><div class="role-card"><h4>业务跟单签认并提报</h4><p>一单一表持续跟踪，汇总齐套结论，提报《订单物料齐套确认单》。</p></div></div>
-        <div class="rule-note orange"><span><strong>现行三方签认缺一，不进入正式排产。</strong>不得代签、补签、事后追签。资料与签认不完整时先补齐，再交付封板。</span></div>
         <p class="source-note">来源：齐套制度 · 第 2–4 页。按完整 BOM 中本次执行阶段的物料范围核算齐套。</p>
       </article>
 
       <article class="panel flow-panel stack-gap">
-        <div class="flow-top"><div><h3>跟单发起-确认封板-计划安排</h3><p class="panel-intro">切换查看两种流程条件。未来方式仅在 WMS 上线且数据准确后启用。</p></div><div class="segmented" role="tablist" aria-label="审批流程方式"><button type="button" id="current-tab" role="tab" aria-selected="true" aria-controls="approval-current">现行流程</button><button type="button" id="wms-tab" role="tab" aria-selected="false" aria-controls="approval-wms" tabindex="-1">未来 · WMS</button></div></div>
-        <ol class="planning-flow"><li><span class="flow-num">01</span><h4>前置资料准备</h4><p>本阶段物料与工艺已确认<br>建立物料跟踪表</p></li><li><span class="flow-num">02</span><h4>跟单员发起</h4><p>组织采购到货与检验<br>持续跟催、签认</p></li><li><span class="flow-num">03</span><h4 data-approval-flow="current">人工核对齐套情况</h4><p data-approval-flow="current">人工核对物料数量、品质与账物<br>三方签认后由跟单提报</p><h4 data-approval-flow="wms" hidden>系统核算齐套率</h4><p data-approval-flow="wms" hidden>系统按条件逐项判定<br>跟单确认后流转计划专员</p><span class="inline-status">不足 → 采购补齐 ↺</span></li><li class="freeze-point"><span class="flow-num">04 · 封板时点</span><h4>进入计划专员</h4><p>进入即冻结内容<br>任何物料编码也不能改</p><p class="wms-freeze-note" data-approval-flow="wms" hidden><strong>封板后，对应库存及其批次同步至 WMS 冻结，供后续使用，不得挪用。</strong></p></li><li><span class="flow-num">05</span><h4>计划安排与执行</h4><p>计划专员安排排产<br>依照封板内容推进</p></li></ol>
-        <div id="approval-current" class="approval-panel" role="tabpanel" aria-labelledby="current-tab"><div><h4>现行审批签字要求</h4><p class="approval-caption">先核实，再由跟单汇总结论</p></div><div><div class="approval-roles"><span class="approval-role">仓库主管</span><span class="approval-role">品质</span><span class="approval-role">业务跟单员</span></div><p>仓库确认数量与账物、品质确认合格性，业务跟单汇总齐套结论并签认提报。计划专员凭完整确认单受理排产。</p></div></div>
-        <div id="approval-wms" class="approval-panel" role="tabpanel" aria-labelledby="wms-tab" hidden><div><h4>未来系统判断物料</h4><p class="approval-caption">条件满足后启用</p></div><div><p class="approval-condition">启用前提：WMS 已上线，且数据准确。</p><div class="approval-roles"><span class="approval-role">系统自动判断物料情况</span><span class="approval-role">流转计划专员</span></div><p>不再要求仓库主管、品质的人工签字；数量、账物及检验结论仍需有效，业务跟单员按既有流程确认。后续计划安排仍由计划专员负责。</p></div></div>
+        <div class="flow-top"><div><h3>WMS</h3><p class="panel-intro">跟单发起 → 确认封板 → 计划安排</p></div></div>
+        <ol class="planning-flow"><li><span class="flow-num">01</span><h4>前置资料准备</h4><p>本阶段物料与工艺已确认<br>建立物料跟踪表</p></li><li><span class="flow-num">02</span><h4>跟单员发起</h4><p>组织采购到货与检验<br>跟进缺料与异常</p></li><li><span class="flow-num">03</span><h4>WMS 核算齐套率</h4><p>系统按条件逐项判定<br>跟单确认后流转计划专员</p><span class="inline-status">不足 → 采购补齐 ↺</span></li><li class="freeze-point"><span class="flow-num">04 · 封板时点</span><h4>进入计划专员</h4><p>进入即冻结内容<br>任何物料编码也不能改</p><p class="wms-freeze-note"><strong>封板后，对应库存及其批次同步至 WMS 冻结，供后续使用，不得挪用。</strong></p></li><li><span class="flow-num">05</span><h4>计划安排与执行</h4><p>计划专员安排排产<br>依照封板内容推进</p></li></ol>
+        <div class="approval-panel"><h4>WMS 判定依据</h4><p>按本阶段所需数量、账物一致性和有效检验结果判定齐套。跟单确认齐套结果后，由计划专员安排排产。</p></div>
         <div class="supply-loop"><span>缺料闭环</span><p>未齐套 → 采购跟催 / 品质处置 / 外协催回 → 重新判定。</p></div>
       </article>
 
@@ -264,40 +260,6 @@
         for (const [item, open] of detailStateForPrint) item.open = open;
         detailStateForPrint = null;
       });
-
-      // Native buttons support pointer and keyboard; Arrow / Home / End implement tab navigation.
-      for (const group of document.querySelectorAll('[role="tablist"]')) {
-        const tabs = [...group.querySelectorAll('[role="tab"]')];
-        function activate(tab, focus) {
-          for (const item of tabs) {
-            const selected = item === tab;
-            item.setAttribute('aria-selected', String(selected));
-            item.tabIndex = selected ? 0 : -1;
-            document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
-          }
-          if (group.getAttribute('aria-label') === '审批流程方式') {
-            const mode = tab.id === 'wms-tab' ? 'wms' : 'current';
-            for (const item of document.querySelectorAll("[data-approval-flow]")) item.hidden = item.dataset.approvalFlow !== mode;
-          }
-          if (focus) tab.focus();
-        }
-        group.addEventListener('click', event => {
-          const tab = event.target.closest('[role="tab"]');
-          if (tab && tabs.includes(tab)) activate(tab, false);
-        });
-        group.addEventListener('keydown', event => {
-          const current = tabs.indexOf(document.activeElement);
-          if (current < 0) return;
-          let next = current;
-          if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
-          else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
-          else if (event.key === 'Home') next = 0;
-          else if (event.key === 'End') next = tabs.length - 1;
-          else return;
-          event.preventDefault();
-          activate(tabs[next], true);
-        });
-      }
 
       const sections = [...document.querySelectorAll('main > section.chapter')];
       const links = [...document.querySelectorAll('.nav-link')];
